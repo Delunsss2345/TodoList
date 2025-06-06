@@ -2,15 +2,16 @@ import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuthStore from "../store/useAuthStore.js";
+import Loading from "../components/Loading.jsx";
 
 const SignUp = () => {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [showPassword, setShowPassword] = useState(false);
-    const { isLogging, login } = useAuthStore();
+    const { isLogging, signup } = useAuthStore();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        login(formData);
+        signup(formData);
     }
     if (isLogging) {
         return <Loading />

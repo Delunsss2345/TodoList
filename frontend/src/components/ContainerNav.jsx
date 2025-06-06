@@ -10,7 +10,7 @@ const ContainerNav = () => {
         setOpen(!isOpen);
     }
     return <div className="w-full dark:text-white flex justify-between">
-        <h1>Container Nav</h1>
+        {/* <h1>Container Nav</h1> */}
         <div className="flex gap-x-4">
             <div className="flex gap-x-2  items-center relative">
                 <label className="absolute left-2" htmlFor=""><Search size={15} /></label>

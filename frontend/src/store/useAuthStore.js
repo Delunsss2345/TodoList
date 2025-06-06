@@ -37,7 +37,7 @@ const useAuthStore = create((set, get) => ({
         set({isLogging : true}) ; 
         try {
             const res  = await axiosInstance.post("/auth/signup", data) ; 
-            set({ authUser: res.data.user }); 
+            set({ authUser: res.data.newUser }); 
             toast.success(res.data.message) ; 
         }
         catch (error) {
