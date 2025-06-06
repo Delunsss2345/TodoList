@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-primary: #5B9BFC; /* Xanh lam trung bình */
+  --color-primary-light: #E0EEFF; /* Xanh lam rất nhạt (được sử dụng cho các vùng nền nhạt) */
+  --color-nav : #f9fbfc ; 
+  --color-secondary: #28a745; /* Màu xanh lá cây tươi sáng (rgb: 40, 167, 69) */
+  --color-secondary-100: rgba(40, 167, 69, 0.1); /* 10% trong suốt */
+  --color-secondary-200: rgba(40, 167, 69, 0.2); /* 20% trong suốt */
+  --color-secondary-300: rgba(40, 167, 69, 0.3); /* 30% trong suốt */
+  --color-secondary-400: rgba(40, 167, 69, 0.4); /* 40% trong suốt */
+  --color-secondary-500: rgba(40, 167, 69, 0.5); /* 50% trong suốt */
+  --color-secondary-600: rgba(40, 167, 69, 0.6); /* 60% trong suốt */
+  --color-secondary-700: rgba(40, 167, 69, 0.7); /* 70% trong suốt */
+  --color-secondary-800: rgba(40, 167, 69, 0.8); /* 80% trong suốt */
+  --color-secondary-900: rgba(40, 167, 69, 0.9); /* 90% trong suốt */
+  --color-btn : #1550f7 ; 
+  --color-light-mode: #FFFFFF; /* Trắng */
+  --color-dark-mode: #14181e; /* Màu nền cho Dark Mode */
+  --color-task-inactive: #F7F8F9; /* Xám nhạt (cho thẻ nhiệm vụ không hoạt động) */
+  --color-text-and-icons: #6B7280; /* Xám trung bình (cho văn bản và biểu tượng) */
+}
