@@ -35,8 +35,7 @@ const useTodoStore = create((set, get) => ({
             toast.error(error.response.data.message) ; 
         }
         finally {
-        set({isLoadTodo : false})
-
+            set({isLoadTodo : false})
         }
     } , 
     updateTodo : async (data) => {
@@ -85,8 +84,14 @@ const useTodoStore = create((set, get) => ({
             toast.error(res.response.data.message) ; 
         }
     } ,
-    setSearch : () => {
-        set({})
-    }
+    setValueSearch : (value) => {set({valueSearch : value})} ,
+    getTodoSearch: (filterTodos) => {
+        const { valueSearch } = get();
+        if (!valueSearch.trim()) return filterTodos;
+
+        return filterTodos.filter(todo =>
+            todo.name.toLowerCase().includes(valueSearch.toLowerCase())
+        );
+    },
 }))
 export default useTodoStore ; 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import useTodoStore from "../store/useTodoStore.js";
 import { useEffect } from "react";
 import { Clock, Ellipsis, Trash2 } from "lucide-react";
@@ -12,13 +12,21 @@ const ContainerMain = () => {
     const [isRemove, setRemove] = useState(false);
     const [isComplete, setComplete] = useState(false);
     const [isSelected, setSelected] = useState(null);
-    const { isLoadTodo, todos, getTodos, updateComplete } = useTodoStore();
+    const { isLoadTodo, todos, getTodos, getTodoSearch, updateComplete, valueSearch } = useTodoStore();
+    const filterTodos = useMemo(() => {
+        //useMemo lưu filter cũ không tính lại nếu không có gì thay đổi ở []
+        const baseTodos = todos.filter(todo => isComplete ? todo.complete : !todo.complete);
+        //chọn chưa hoàn thành sẽ hiện chưa hoành thành trong db lưu complete === false
+        if (valueSearch) {
+            return getTodoSearch(baseTodos);
+        }
+        return baseTodos;
+    }, [todos, isComplete, valueSearch]);
 
-    const filterTodos = todos.filter(todo => isComplete ? todo.complete : !todo.complete);
+    useEffect(() => {
+        getTodos();
+    }, [getTodos]);
 
-    const handlerComplete = (id) => {
-        updateComplete(id)
-    }
 
     const handleModal = () => {
         setOpen(!isOpen);
@@ -28,9 +36,7 @@ const ContainerMain = () => {
         setRemove(!isRemove);
     }
 
-    useEffect(() => {
-        getTodos();
-    }, [getTodos])
+
     return <> <div className="w-full flex flex-col gap-y-6 lg:gap-y-12">
         <div className="flex w-fit p-1 border border-slate-300 rounded-sm bg-slate-400/20 *:text-sm ">
             <div>
@@ -90,4 +96,6 @@ const ContainerMain = () => {
 
     </>
 }
-export default ContainerMain; 
+export default ContainerMain;
+
+
