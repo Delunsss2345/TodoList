@@ -11,7 +11,7 @@ dotenv.config() ;
 app.use(express.json()) ; 
 app.use(cookieParse());
 app.use(cors({
-   origin: ['http://localhost:5173', 'https://todolist-qpwk.onrender.com'],
+  origin: ['http://localhost:5173', 'https://todolist-qpwk.onrender.com'],
   credentials: true, // cookie / token
 }));
 const __dirname = path.resolve();
