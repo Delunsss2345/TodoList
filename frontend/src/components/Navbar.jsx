@@ -5,7 +5,7 @@ const NavBar = () => {
 
         <div className="flex items-center gap-x-2">
             <figure className='w-12'>
-                <img src="../public/images/logo.png" alt="Logo" />
+                <img src="/logo.png" alt="Logo" />
             </figure>
             <h1 className="font-semibold text-sm lg:text-xl">HealDocs</h1>
         </div>

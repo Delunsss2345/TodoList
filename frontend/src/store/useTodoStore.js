@@ -2,6 +2,8 @@ import {create} from 'zustand'
 import {axiosInstance} from '../lib/axios.js'
 import toast from 'react-hot-toast';
 const useTodoStore = create((set, get) => ({
+    isSearch : false ,
+    valueSearch : "" , 
     isLoadTodo : false ,
     isAddTodo : false , 
     todos : [] ,
@@ -82,6 +84,9 @@ const useTodoStore = create((set, get) => ({
         catch (error) {
             toast.error(res.response.data.message) ; 
         }
+    } ,
+    setSearch : () => {
+        set({})
     }
 }))
 export default useTodoStore ; 

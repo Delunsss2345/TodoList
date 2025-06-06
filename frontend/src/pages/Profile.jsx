@@ -36,7 +36,7 @@ const Profile = () => {
             <div className="w-100 space-y-8 p-2 lg:p4 xl:p-6 border border-slate-400 rounded-xl">
                 <div>
                     <figure className="mx-auto self-center size-30 relative">
-                        <img className="rounded-full object-cover border border-slate-400" src={imagePreview || authUser.profilePic || "../public/images/avatar_default.png"} alt="" />
+                        <img className="rounded-full object-cover border border-slate-400" src={imagePreview || authUser.profilePic || "/avatar_default.png"} alt="" />
                         <input onChange={handleUpload} type="file" id="profilePic" hidden />
                         <label className="dark:bg-dark-mode flex items-center justify-center rounded-full border border-slate-400 cursor-pointer absolute right-0 bottom-2 bg-white size-8" htmlFor="profilePic">
                             <Camera size={18} />

@@ -28,7 +28,7 @@ const ContainerHeader = () => {
             </button>
 
             <figure onClick={() => { setShowMenu(!showMenu) }} className="relative cursor-pointer rounded-full bg-white size-9">
-                <img className="rounded-full object-cover" src={authUser.profilePic || '../public/images/avatar_default.png'} alt="" />
+                <img className="rounded-full object-cover" src={authUser.profilePic || '/avatar_default.png'} alt="" />
                 <ul className={`bg-white z-10 absolute flex flex-col rounded-xl overflow-hidden border border-slate-400 w-50 top-15 right-0 dark:bg-dark-mode *:flex *:gap-x-2 *:dark:text-white transition duration-300 ${showMenu ? 'scale-x-100  origin-right opacity-100' : 'visible opacity-0 scale-x-0 origin-right'
                     }`}>
 
